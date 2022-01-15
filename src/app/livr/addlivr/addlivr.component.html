@@ -1,0 +1,257 @@
+<body class="skin-blue">
+  <!-- header logo: style can be found in header.less -->
+  <header class="header">
+      <a href="index.html" class="logo">
+
+       
+          <!-- Add the class icon to your logo image or logo icon to add the margining -->
+          MarketPlace
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+          <div class="pull-left info" style="margin-left: 800px;">
+              <a routerLink="/update1" routerLinkActive="active" style="font-size: 20px; color:white ">Profil</a>                </div>
+         <div class="pull-left info">
+          <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+
+         </div>
+      </nav>
+  </header>
+  <div class="wrapper row-offcanvas row-offcanvas-left">
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="left-side sidebar-offcanvas">                
+          <!-- sidebar: style can be found in sidebar.less -->
+          <section class="sidebar">
+              <!-- Sidebar user panel -->
+              <div class="user-panel">
+                        
+               
+            
+            
+        </div>
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+                
+<span>{{this.nomf}}</span>
+                      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                  </div>
+              </div>
+             
+              <!-- sidebar menu: : style can be found in sidebar.less -->
+              <ul class="sidebar-menu" style="font-size: 15px;">
+                  <li class="active">
+                      <a routerLink="/articles" routerLinkActive="active">
+                        
+                          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                      </a>
+                  </li>
+                
+
+                 
+                  <li>
+                    <a routerLink ="/articles" routerLinkActive="active">
+                        <i class="fa fa-th"></i> <span>Gestion d'article</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink ="/listcommfour"  routerLinkActive="active">
+                        <i class="fa fa-th"></i> <span>Commande en attente</span>
+                    </a>
+                  
+                </li>
+                <li>
+                    <a routerLink="/livr" routerLinkActive="active">
+                        <i class="fa fa-th"></i> <span>Gestion de livraison</span>
+                       
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/llivr" routerLinkActive="active">
+                        <i class="fa fa-th"></i> <span>Liste des livraisons</span>
+                       
+                    </a>
+                   
+                </li>
+                <li>
+                    <a routerLink="/histouriquefour" routerLinkActive="active">
+                        <i class="fa fa-th"></i> <span>Historique</span>
+                       
+                    </a>
+                   
+                </li> 
+                  
+                  
+              </ul>
+          </section>
+          <!-- /.sidebar -->
+      </aside>
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <aside class="right-side">                
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+              <h1>
+                Gestion de livraison
+              </h1>
+              
+          </section>
+
+          <!-- Main content -->
+       </aside> 
+
+
+
+<br>
+<br>
+
+<aside class="right-side">                
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <div>
+    <h1></h1> 
+    </div>
+    
+  
+  <form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()" style="font-size: 15px;">
+  <input  type="hidden"  class="form-control" formControlName="libcl" id ="libcl">
+  <div class="form-group row col-md-12">
+  <div class="form-group col-md-6">
+      <label><strong>Numéro de Livraison : </strong></label>
+      <input  type="text" style="font-size: 14px;" class="form-control" formControlName="numero"id="numero" readonly>
+  </div>  
+  <div class="col-md-6 form-group">
+        <label>Date</label>
+      <input  type="date" style="font-size: 14px;"class="form-control" formControlName="date_mvt" id = "date_mvt">
+  </div>
+  
+  <div class="col-md-6 form-group">
+    <label>Client</label>
+    <select name="code" style="font-size: 14px;"class="form-control" formControlName="code" id ="code"
+    (change)="OnSelectClient($event.target)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let client of this.ClientList" value="{{client.code}}">{{client.libelle}}</option>
+    </select>
+  </div>
+  
+  
+      <div class="col-md-6 form-group">
+          <label>Chauffeur </label>
+          <input class="form-control" style="font-size: 14px;"formControlName="chauffeur" id ="chauffeur" >
+      </div>
+      <div class="col-md-6 form-group">
+          <label>Camion </label>
+          <input class="form-control"style="font-size: 14px;" formControlName="camion" id = "camion">
+      </div>
+  
+  
+  </div>
+  <table class="table table-borderless">
+    <thead class="thead-light">
+       <th>Article</th>
+      <th>Prix</th>
+      <th>Quantite</th>
+      <th>Remise</th>
+      <th>Tva</th>
+      <th>Total Ht</th>
+      <th>
+        <a class="btn btn-success"style="background-color: #3680ab;
+        color: white;
+        font-size: 13px;" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter article</a>
+      </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="service.list.length==0"  [class.text-danger]="!isValid && service.list.length ==0">
+            <td class="font-italic text-center" colspan="5">
+              Aucune Article sélectionnée ...
+            </td>
+          </tr>
+      <tr *ngFor="let item of service.list;let i=index;">
+      <td>{{item.libart}}</td>
+      <td>{{item.pu}}</td>
+      <td>{{item.qte}}</td>
+      <td>{{item.rem}}</td>
+      <td>{{item.tva}}</td>
+      <td>{{item.totht}}</td>
+      <td>
+          <a class="btn btn-success text-white"style="    font-size: 15px;" (click)="AddData(i,1)"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-danger text-white ml-1" style="    font-size: 15px;"(click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+   
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total Ht : </label>
+            <input type="text"style="font-size: 14px;" class="form-control" id="totht" formControlName="totht" readonly>
+        </div>
+        </div> 
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+              <label>Total Remise : </label>
+              <input type="text"style="font-size: 14px;" class="form-control" id="totrem" formControlName="totrem" readonly>
+        </div>
+        </div>
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+              <label>Total Fodec : </label>
+              <input type="text"style="font-size: 14px;" class="form-control" id="totfodec" formControlName="totfodec" readonly>
+        </div>
+        </div>
+        <div class="col-sm-2 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total Tva  : </label>
+            <input type="text"style="font-size: 14px;" class="form-control" id="tottva" formControlName="tottva" readonly>
+        </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+        <label>Total TTC : </label>
+        <input type="text" style="font-size: 14px;" class="form-control" id="totttc" formControlName="totttc" readonly>
+        </div>
+        </div>        
+        
+      </div>
+      <br>
+  <div class="form-group">
+    <button type="submit" style="font-size: 13px;" class="btn btn-success"> Passer livraison</button> 
+    
+    <button  class="btn btn-success" style="margin-left: 20px;font-size: 13px;"(click)="generatePdf(this.service.formData.value.id)"><i class="fa fa-file-pdf-o"></i> Imprimer </button>
+ <br> <br>  <a class="btn btn-success"   style="font-size: 13px;margin-left: 1000px;  margin-top: -95px; width: 80px; color: white;"routerLink="/llivr">Liste </a>
+  
+  </div>
+ 
+  
+  
+  </form> 
+  
+

@@ -1,0 +1,266 @@
+
+
+
+
+    <body class="skin-blue">
+      <!-- header logo: style can be found in header.less -->
+      <header class="header">
+          <a href="index.html" class="logo">
+
+           
+              <!-- Add the class icon to your logo image or logo icon to add the margining -->
+              MarketPlace
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top" role="navigation">
+              <div class="pull-left info" style="margin-left: 800px;">
+                  <a routerLink="/profil" routerLinkActive="active" style="font-size: 20px; color:white "> Profil</a>                </div>
+             <div class="pull-left info">
+              <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+
+             </div>
+          </nav>
+      </header>
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+          <!-- Left side column. contains the logo and sidebar -->
+          <aside class="left-side sidebar-offcanvas">                
+              <!-- sidebar: style can be found in sidebar.less -->
+              <section class="sidebar">
+                  <!-- Sidebar user panel -->
+                  <div class="user-panel">
+                        
+                   
+                
+            </div>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                  
+<span>{{this.name}}</span>
+                          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                      </div>
+                  </div>
+                 
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu" style="font-size: 15px;">
+                     <li class="active">
+                        <a routerLink ="/accueil" routerLinkActive="active">
+                          
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                  
+  
+                    <li class="active">
+                        <a routerLink ="/listuser" routerLinkActive="active">
+                          
+                            <i class="fa fa-th"></i> <span>Utilisateur</span>
+                        </a>
+                    </li>
+  
+                    <li class="active">
+                        <a routerLink ="/categories" routerLinkActive="active">
+                          
+                            <i class="fa fa-th"></i> <span>Categories</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a routerLink ="/souscategories" routerLinkActive="active">
+                          
+                            <i class="fa fa-th"></i> <span>Sous catégories</span>
+                        </a>
+                    </li>
+                      
+                    <li class="active">
+                        <a routerLink ="/chart" routerLinkActive="active">
+                          
+                            <i class="fa fa-th"></i> <span>Statistiques</span>
+                        </a>
+                    </li>   
+                      
+                      
+                  </ul>
+              </section>
+              <!-- /.sidebar -->
+          </aside>
+
+          <!-- Right side column. Contains the navbar and content of the page -->
+          <aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+                  <h1>
+                     Mon profil 
+                     
+                  </h1>
+                  
+              </section>
+
+              <!-- Main content -->
+           </aside> 
+
+
+
+
+           <aside class="right-side">
+<section>
+
+
+             <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+   
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+  .container {
+      width:700px ;
+      font-size:15px ;
+    padding: 16px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 7px;
+    margin: 4px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #e4e3e3;;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #141498;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }</style>
+</head>
+
+<body>
+
+<form [formGroup]="this.userService.dataform">
+  <div class="container">
+  
+    <hr>
+    
+    
+    <label for="email"><b>Email</b></label>
+    <input type="text" value="{{this.userService.user.email}}" id="email" required [(ngModel)]="email" name="email">
+
+    <label for="username"><b>Nom </b></label>
+    <input type="text" value="{{this.userService.user.username}}"id="username" required [(ngModel)]="username" name="username">
+
+
+    <label for="login"><b>Prénom</b></label>
+    <input type="text" value="{{this.userService.user.login}}" id="login" required [(ngModel)]="login" name="login">
+
+    <label for="role"><b>Role</b></label>
+    <input type="text" value="{{this.userService.user.role}}"id="role" required [(ngModel)]="role" name="role">
+
+   
+
+    <label for="pwd"><b>Mot de passe</b></label>
+    <input type="password" value="{{this.userService.user.pwd}}"id="pwd" required [(ngModel)]="pwd" name="pwd">
+
+
+    <label for=""><b>Est Active</b></label>
+    <input type="text" value="{{this.userService.user.active}}">
+ 
+    <hr>
+
+    <button type="submit" (click)="enregister()" class="registerbtn" style="padding: 9px 20px; margin-top:-10px">Enregister</button>
+   
+  </div>
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+</section>
+</aside>
+</div>
+</body>
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+    <div style="overflow-y: scroll; height:400px;" class="col-md-12">
+<div class="w3-container">
+  <h2>Votre Panier</h2>
+  
+
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th>Produit</th>
+        <th>Libelle</th>
+        <th>Prix Vente</th>
+        <th>Quantité</th>
+        <th>Montant</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let item of service.list ;let i=index;">
+      <td><img src="{{this.articleService.host+'/api/Imgarticles/'+item.code}}"style="     width: 120px;
+        height: 80px;
+        padding: 10px;"   alt=""></td>
+
+
+      <td>{{item.libelle}}</td>
+
+      <td>{{item.pv}}</td>
+
+      <td><input type="number" style="font-size: 15px;" class="form-control" [(ngModel)]="item.qte" (change)="calcul()"
+                       min="1" max="1000"></td>
+ 
+      <td>{{item.qte*item.pv}}</td>
+      <td> <a class="btn btn-sm btn-danger text-white ml-1" style="    font-size: 15px;" (click)="onDelete(item,item.id,i)">
+        <i class="fa fa-trash">supprimer</i></a>
+</td>
+     
+    </tr>
+   
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" (click)="payement()">Valider Panier</button>
+                <button type="button" class="btn btn-success" (click)="vider()" style="margin-left: 60px;">Vider Panier</button>
+                    <button type="button" class="btn btn-danger" [mat-dialog-close] style="margin-left: 570px;"><i 
+    class="fa fa-close"></i>Retour</button>
+</div>
+    </div>
+</body>
+</html> 
+
+
+
+
+
+     
+              

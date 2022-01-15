@@ -1,0 +1,322 @@
+
+
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+  
+             
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                MarketPlace
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="pull-left info" style="margin-left: 800px;">
+                    <a routerLink="/update1" routerLinkActive="active" style="font-size: 20px; color:white ">Profil</a>                </div>
+               <div class="pull-left info">
+                <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+  
+               </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">                
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        
+                       
+                    
+                    
+                </div>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                     
+<span>{{this.nomf}}</span>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                   
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" style="font-size: 15px;">
+                        <li class="active">
+                            <a routerLink="/articles" routerLinkActive="active">
+                              
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                       
+  
+                       
+                        <li>
+                            <a routerLink ="/articles" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Gestion d'article</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink ="/listcommfour"  routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Commande en attente</span>
+                            </a>
+                          
+                        </li>
+                        <li>
+                            <a routerLink="/livr" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Gestion de livraison</span>
+                               
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/llivr" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Liste des livraisons</span>
+                               
+                            </a>
+                           
+                        </li>
+                        
+                        <li>
+                            <a routerLink="/histouriquefour" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Historique</span>
+                               
+                            </a>
+                           
+                        </li>
+                        
+                        
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+  
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Liste des livraisons
+                    </h1>
+                   <br> 
+                   <br>
+                   <br>
+                </section>
+  
+                <!-- Main content -->
+             </aside> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+  
+                    
+                    
+                     
+                    <a class="btn btn-success"style="background-color: #3680ab;
+                    color: white;
+                    font-size: 13px;" (click)="newlivr()">
+                    <i class="fa fa-plus"></i>Créer Livraison </a>
+                    <br>
+                    <br>
+                     
+                    <div class="pricing-header mx-auto">
+                        <div class="table-responsive">
+                         <table class="table table-bordered table-responsive-sm table-responsive-md
+                        table-responsive-lg" style="font-size: 13px;">
+                    <thead class="thead-light">
+                    <th>Numero</th>  
+                    <th>Date</th>
+                    <th>Désignation</th>
+                    <th>Chauffeur</th>
+                    <th>Tot Ht</th>
+                    <th>Tot Rem</th>
+                    <th>Tot Fodec</th>
+                    <th>Tot Tva</th>
+                    <th>Tot TTC</th>
+                    <th>Action</th>
+                    
+                    
+                   
+                    </thead>
+                    <tbody style="font-size: 13px;">
+                    <tr *ngFor="let item of listlivr ">
+                        
+                    <td>{{item.numero}}</td>
+                    <td>{{item.date_mvt| date:'dd/MM/yyyy'}}</td>
+                    <td>{{item.libcl}}</td>
+                    
+                    <td>{{item.chauffeur}}</td>
+                    <td>{{item.totht}}</td>
+                    <td>{{item.totrem}}</td>
+                    <td>{{item.totfodec}}</td>
+                    <td>{{item.tottva}}</td>
+                    <td>{{item.totttc | number :'1.2-2'}}</td>
+                    
+                    <td>
+                    <a class="btn btn-danger"style="    color: white;
+                    font-size: 11.5px;
+                    margin-left: 10px;" (click)="onDelete(item.id)"><i class="fa fa-trash fa-lg"></i> Supprimer</a>
+                    <a class="btn btn-success" style="    color: white;
+                    font-size: 11.5px;
+                    margin-left: 10px;" (click)="onSelect(item)">Voir articles </a>
+                    
+                    
+                    </td>
+                    
+                    
+                    
+                    
+                    </tr>
+                    <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"></div></div><div class="col-sm-12 col-md-7"></div></div>
+                    </tbody>
+                    
+                    </table>
+                    
+                    </div>
+                    </div>
+                    
+                        
+     
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+  
+  
+  
+    </body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

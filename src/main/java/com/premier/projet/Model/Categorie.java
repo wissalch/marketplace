@@ -1,0 +1,73 @@
+package com.premier.projet.Model;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MapKeyJoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import java.util.Set;
+@Entity
+@Table(name = "categorie")
+
+
+public class Categorie {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String code;
+	private String libelle;
+	
+	
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public Categorie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Categorie(long id, String code, String libelle) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.libelle = libelle;
+	}
+	@Override
+	public String toString() {
+		return "Categorie [id=" + id + ", code=" + code + ", libelle=" + libelle + "]";
+	}
+	public String getLibelle() {
+		return libelle;
+	}
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+}
+
+
+
+
+	
+	
+	
+	
+	
+	
+
+	
+
+

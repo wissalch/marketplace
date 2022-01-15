@@ -1,0 +1,383 @@
+
+
+    <body class="skin-blue">
+      <!-- header logo: style can be found in header.less -->
+      <header class="header">
+          <a href="index.html" class="logo">
+
+           
+              <!-- Add the class icon to your logo image or logo icon to add the margining -->
+              MarketPlace
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top" role="navigation">
+              <div class="pull-left info" style="margin-left: 800px;">
+                  <a routerLink="/profil" routerLinkActive="active" style="font-size: 20px; color:white ">Profil</a>                </div>
+             <div class="pull-left info">
+              <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+
+             </div>
+          </nav>
+      </header>
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+          <!-- Left side column. contains the logo and sidebar -->
+          <aside class="left-side sidebar-offcanvas">                
+              <!-- sidebar: style can be found in sidebar.less -->
+              <section class="sidebar">
+                  <!-- Sidebar user panel -->
+                  <div class="user-panel">
+                        
+                   
+                
+                
+            </div>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                  
+<span>{{this.nom}}</span>
+                          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                      </div>
+                  </div>
+                 
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu" style="font-size: 15px;">
+                    <li class="active">
+                      <a routerLink ="/accueil" routerLinkActive="active">
+                        
+                          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                      </a>
+                  </li>
+                 
+                  <li class="active">
+                      <a routerLink ="/listuser" routerLinkActive="active">
+                        
+                          <i class="fa fa-th"></i> <span>Utilisateur</span>
+                      </a>
+                  </li>
+
+                  <li class="active">
+                    <a routerLink ="/categories" routerLinkActive="active">
+                      
+                        <i class="fa fa-th"></i> <span>Categories</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a routerLink ="/souscategories" routerLinkActive="active">
+                      
+                        <i class="fa fa-th"></i> <span>Sous catégories</span>
+                    </a>
+                </li>
+                    
+                <li class="active">
+                  <a routerLink ="/chart" routerLinkActive="active">
+                    
+                      <i class="fa fa-th"></i> <span>Statistiques</span>
+                  </a>
+              </li>   
+                    
+                    
+                      
+                  </ul>
+              </section>
+              <!-- /.sidebar -->
+          </aside>
+
+          <!-- Right side column. Contains the navbar and content of the page -->
+          <aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+                  <h1>
+                      Liste Catégorie
+                  </h1>
+                  
+              </section>
+
+              <!-- Main content -->
+           </aside> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside class="right-side"  style="    margin-left: 10px;">                
+              <!-- Content Header (Page header) -->
+
+
+
+
+              <section style="background-color: #f9f9f9;">
+                <br>
+                <br>
+                
+               
+                </section>
+                
+                
+                
+                
+                
+                
+                
+                
+                <aside class="right-side">     
+                
+                
+                  
+                  <section style="margin-left: 20px;"><!-- /.content -->
+
+                    <h4></h4>
+                    <div style="width: 300px;">
+                      <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                          <label for="libelle"></label>
+                          <input type="text" style="font-size: 14px;"placeholder="Chercher une categorie..." class="form-control" id="libelle" required [(ngModel)]="libelle" name="libelle">
+                        </div>
+                    
+                        <div class="btn-group">
+                          <button type="submit" style="margin-top: -48px;
+                          margin-left: 310px;
+                          
+                          height: 30px;" class="btn btn-success">chercher</button>
+                        </div>
+                      </form>
+                    </div>
+                  
+                
+                
+                
+                    <div class="pricing-header mx-auto">
+                      <div class="table-responsive">
+                       <table class="table table-bordered table-responsive-sm table-responsive-md
+                      table-responsive-lg" >
+                       
+                    
+                       <tbody style="font-size: 13px;">
+                     
+                     
+                       <tr *ngFor="let categorie of categories">
+                           <th>{{categorie.id}}</th>
+                        <td>{{categorie.code}}</td>
+                       <td>{{categorie.libelle}}</td>
+                       
+                      
+                       <td><button type="button" class="btn btn-success" style="margin-left: 10px;
+                           font-size: 13px;"  (click) = "selectData(categorie)">
+                         <i class="fa fa-pencil-square-o" ></i>Modifier</button>
+                      <button type="button" class="btn btn-danger"style="margin-left: 10px;
+                      font-size: 13px;" (click) = "removeData(categorie.code)">
+                         <i class="fa fa-trash-o"></i>Supprimer</button></td>
+                          </tr>
+                            </tbody>
+                            </table>
+                            </div>
+                            
+                          </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                  </section><!-- /.content -->
+
+
+
+
+
+
+              <section class="content-header">
+
+                  
+              
+                        <a class="btn btn-success"style="background-color: #3680ab;
+                        color: white;
+                        font-size: 13px;" (click)="addCategorie()">
+                        <i class="fa fa-plus"></i>Ajouter une Catégorie </a>
+                       
+                          <a class="btn btn-success"style=" background-color: #3680ab;
+                          color: white;
+                          margin-left: 710px;
+                          font-size: 13px;
+                          width: 180px;"  (click)="exportToExcel()"> Exporter </a><br>
+                       
+                   
+              
+             
+             <div class="jumbotron text-center" style="     padding: 10px;">
+              <h1 style="font-size: 25px;">La liste des catégories</h1>
+            </div>
+               
+              <div class="pricing-header mx-auto">
+               <div class="table-responsive">
+                <table class="table table-bordered table-responsive-sm table-responsive-md
+               table-responsive-lg"id="myTable">
+                <thead style="font-size: 15px;">
+                <tr>
+                   
+                <th scope="col">Code</th>
+                <th scope="col">Libelle </th>
+                <th style="width: 400px;"scope="col">Action  <button onclick="sortTable()"class="btn btn-outline-dark ml-1">voir les catégories par ordre trié</button>
+               
+                
+               
+                </tr>
+                </thead>
+                <tbody style="font-size: 13px;">
+              
+              
+                <tr *ngFor="let item of crudApi.listData ">
+                    
+                 <td>{{item.code}}</td>
+                <td>{{item.libelle}}</td>
+                
+               
+                <td><button type="button" class="btn btn-success" style="margin-left: 10px;
+                    font-size: 13px;"  (click) = "selectData(item)">
+                  <i class="fa fa-pencil-square-o" ></i>Modifier</button>
+               <button type="button" class="btn btn-danger"style="margin-left: 10px;
+               font-size: 13px;" (click) = "removeData(item.code)">
+                  <i class="fa fa-trash-o"></i>Supprimer</button></td>
+                   </tr>
+                     </tbody>
+                     </table>
+                     </div>
+                     
+                   </div>
+              
+   
+
+
+
+              </section><!-- /.content -->
+</aside>
+</aside>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+

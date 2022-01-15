@@ -1,0 +1,289 @@
+
+    <body class="skin-blue">
+      <!-- header logo: style can be found in header.less -->
+      <header class="header">
+          <a href="index.html" class="logo">
+
+           
+              <!-- Add the class icon to your logo image or logo icon to add the margining -->
+              MarketPlace
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top" role="navigation">
+              <div class="pull-left info" style="margin-left: 800px;">
+                  <a routerLink="/update" routerLinkActive="active" style="font-size: 20px; color:white ">Profil</a>                </div>
+             <div class="pull-left info">
+              <a href="/login" style="font-size: 20px; margin-left: 70px;color:white ">Déconnexion</a> 
+
+             </div>
+          </nav>
+      </header>
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+          <!-- Left side column. contains the logo and sidebar -->
+          <aside class="left-side sidebar-offcanvas">                
+              <!-- sidebar: style can be found in sidebar.less -->
+              <section class="sidebar">
+                  <!-- Sidebar user panel -->
+                  <div class="user-panel">
+                        
+                    
+                
+                
+            </div>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    
+                    <span>{{this.nom}} </span>
+                    <a href="#"><i class="fa fa-circle text-success"></i> En ligne</a></div>
+                  </div>
+                 
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu" style="font-size: 15px;">
+                      <li class="active">
+                          <a routerLink ="/panier" routerLinkActive="active">
+                            
+                              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                          </a>
+                      </li>
+                    
+
+                      <li>
+                          <a routerLink ="/panier" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Boutique</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a routerLink ="/comm"  routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>passer une commande</span>
+                          </a>
+                        
+                      </li>
+                      <li>
+                          <a routerLink="/listpanier" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Panier stocké</span>
+                             
+                          </a>
+                      </li>
+                      <li>
+                          <a routerLink="/lcomm" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Consulter votre commande</span>
+                             
+                          </a>
+                         
+                      </li>
+                      <li>
+                        <a routerLink="/historique" routerLinkActive="active">
+                            <i class="fa fa-th"></i> <span>historique</span>
+                           
+                        </a>
+                       
+                    </li>
+                      
+                      
+                      
+                      
+                      
+                      
+                  </ul>
+              </section>
+              <!-- /.sidebar -->
+          </aside>
+
+          <!-- Right side column. Contains the navbar and content of the page -->
+          <aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+                  <h1>
+                  Votre commande
+                  </h1>
+                  
+              </section>
+
+              <!-- Main content -->
+           </aside> 
+
+
+
+<br>
+<br>
+
+<aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+
+                  
+                <table class="w3-table-all">
+                    <thead>
+                      <tr class="w3-red">
+                    
+                    <th>numero</th>  
+                    <th>Date commande</th>
+                    <th>Client</th>
+                    <th>Total Ht</th>
+                    <th>Total Tva</th>
+                    <th>Total TTC</th>
+                    <th>Action</th>
+
+               
+                </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngIf="this.lcommservice.lcomm.length==0" 
+                    [class.text-danger]="lcommservice.lcomm.length ==0">
+                       <td class="font-italic text-center" colspan="5">
+                         Aucune Commande sélectionnée ...
+                       </td>
+                <tr>
+                  
+                  <td>{{service.commande.numero}}</td>
+                    <td>{{service.commande.date_mvt| date:'dd/MM/yyyy'}}</td>
+                  <td>{{service.commande.nom}}</td>
+                  <td >{{service.commande.tottht}}</td>
+                  <td >{{service.commande.tottva}}</td>
+                  <td >{{service.commande.totttc}}</td>
+                  <td><button class="btn btn-danger" (click) = "onDelete(service.commande.id)">
+                    <i class="fa fa-trash-o"></i></button></td>
+                </tr>
+               
+                  </tbody>
+                </table>
+                
+                
+
+
+
+
+
+
+
+              </section><!-- /.content -->
+          </aside><!-- /.right-side -->
+      </div><!-- ./wrapper -->
+
+
+
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

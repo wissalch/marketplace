@@ -1,0 +1,341 @@
+
+    <body class="skin-blue">
+      <!-- header logo: style can be found in header.less -->
+      <header class="header">
+          <a href="index.html" class="logo">
+
+           
+              <!-- Add the class icon to your logo image or logo icon to add the margining -->
+              MarketPlace
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top" role="navigation">
+              <div class="pull-left info" style="margin-left: 800px;">
+                  <a routerLink="/update" routerLinkActive="active" style="font-size: 20px; color:white ">Profil</a>                </div>
+             <div class="pull-left info">
+              <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+
+             </div>
+          </nav>
+      </header>
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+          <!-- Left side column. contains the logo and sidebar -->
+          <aside class="left-side sidebar-offcanvas">                
+              <!-- sidebar: style can be found in sidebar.less -->
+              <section class="sidebar">
+                  <!-- Sidebar user panel -->
+                  <div class="user-panel">
+                        
+                    
+                
+                
+            </div>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    
+                    <span>{{this.nom}} </span>
+                    <a href="#"><i class="fa fa-circle text-success"></i> En ligne</a>
+                      </div>
+                  </div>
+                 
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu" style="font-size: 15px;">
+                      <li class="active">
+                          <a routerLink ="/panier" routerLinkActive="active">
+                            
+                              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                          </a>
+                      </li>
+                    
+
+                      <li>
+                          <a routerLink ="/panier" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Boutique</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a routerLink ="/comm"  routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>passer une commande</span>
+                          </a>
+                        
+                      </li>
+                      <li>
+                          <a routerLink="/listpanier" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Panier stocké</span>
+                             
+                          </a>
+                      </li>
+                      <li>
+                          <a routerLink="/lcomm" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Consulter votre commande</span>
+                             
+                          </a>
+                         
+                      </li>
+                      <li>
+                        <a routerLink="/historique" routerLinkActive="active">
+                            <i class="fa fa-th"></i> <span>historique</span>
+                           
+                        </a>
+                       
+                    </li>
+                      
+                      
+                      
+                      
+                      
+                      
+                  </ul>
+              </section>
+              <!-- /.sidebar -->
+          </aside>
+
+          <!-- Right side column. Contains the navbar and content of the page -->
+          <aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+                  <h1>
+                 Passer une comande
+                  </h1>
+                  
+              </section>
+
+              <!-- Main content -->
+           </aside> 
+
+
+
+<br>
+<br>
+
+<aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+
+  
+<form [formGroup]="this.panierservice.formData" (ngSubmit)="onSubmit()" style="font-size: 15px;">
+  <input  type="hidden"  class="form-control" formControlName="nom" id="nom" >
+  <div class="form-group row col-md-12">
+    <div class="form-group col-md-6">
+        <label><strong>Numéro Commande : </strong></label>
+        <input  type="text"style="font-size: 14px;"  class="form-control" formControlName="numero" id="numero" readonly>
+    </div> 
+   <br>  
+    <div class="col-md-6 form-group">
+          <label>Date</label>
+        <input  type="date"style="font-size: 14px;"  class="form-control" formControlName="date_mvt"  id="date_mvt">
+    </div>
+    <br> 
+    
+    <div class="col-md-6">
+        <label>Nom</label>
+        <input class="form-control"style="font-size: 14px;" formControlName="nom" id="nom" readonly><br><br>
+    </div>
+     
+    </div>
+    <br>
+    <br>
+    <table class="table table-borderless">
+      <thead class="thead-light">
+        <th>Code article</th>
+        <th>Article</th>
+        <th>Prix</th>
+        <th>Quantite</th>
+        <th>Tva</th>
+        <th>Total Ht</th>
+       
+      </thead>
+      
+      <tbody>
+          <tr *ngIf="panierservice.list.length==0" 
+           [class.text-danger]="!isValid && panierservice.list.length ==0">
+              <td class="font-italic text-center" colspan="5">
+                Aucune Commande sélectionnée ...
+              </td>
+            </tr>
+        <tr *ngFor="let item of panierservice.list;let i=index;">
+        <td>{{item.code}}</td>  
+        <td>{{item.libelle}}</td>
+        <td>{{item.pv}}</td>
+        <td>{{item.qte}}</td>
+        <td>{{item.tva}}</td>
+        <td>{{item.montttc}}</td>
+        
+       
+      </tr>
+      </tbody>
+    </table>
+    <div class="form-group row">
+          <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="form-group">
+              <label>Total Ht : </label>
+              <input type="text" class="form-control" style="font-size: 14px;"id="tottht" formControlName="tottht" readonly>
+          </div>
+          </div> 
+          <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="form-group">
+              <label>Total Tva  : </label>
+              <input type="text" class="form-control"style="font-size: 14px;" id="tottva" formControlName="tottva" readonly>
+          </div>
+          </div>
+          <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="form-group">
+          <label>Total TTC : </label>
+          <input type="text" class="form-control"style="font-size: 14px;" id="totttc" formControlName="totttc" readonly>
+          </div>
+          </div>        
+       </div>
+    <div class="form-group">
+      <button type="submit"style="font-size: 13px;" class="btn btn-success">Enregistrer Commande</button>
+      <a class="btn btn-success"style="font-size: 13px;
+      color: white;
+      margin-left: 700px;
+  " routerLink="/lcomm"><i class="fa fa-plus-square"></i> Consulter commande </a>
+   </div>
+  </form> 
+  
+  
+
+
+
+
+
+
+
+
+
+
+              </section><!-- /.content -->
+          </aside><!-- /.right-side -->
+      </div><!-- ./wrapper -->
+
+
+
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

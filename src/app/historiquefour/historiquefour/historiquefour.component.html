@@ -1,0 +1,312 @@
+  
+
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+  
+             
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                MarketPlace
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="pull-left info" style="margin-left: 800px;">
+                    <a routerLink="/update1" routerLinkActive="active"style="font-size: 20px; color:white ">Profil</a>                </div>
+               <div class="pull-left info">
+                <a href="/login" style="font-size: 20px;    margin-left: 70px;color:white ">Déconnexion</a> 
+  
+               </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">                
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                          
+                     
+                  
+                  
+              </div>
+              <div class="user-panel">
+                  <div class="pull-left image">
+                      <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                  </div>
+                  <div class="pull-left info">
+                      
+  <span>{{this.nomf}}</span>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                   
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" style="font-size: 15px;">
+                        <li class="active">
+                            <a routerLink="/articles" routerLinkActive="active">
+                              
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                       
+  
+                       
+                        <li>
+                            <a routerLink ="/articles" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Gestion d'article</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink ="/listcommfour"  routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Commande en attente</span>
+                            </a>
+                          
+                        </li>
+                        <li>
+                            <a routerLink="/livr" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Gestion de livraison</span>
+                               
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/llivr" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Liste des livraisons</span>
+                               
+                            </a>
+                           
+                        </li>
+                        
+                        <li>
+                          <a routerLink="/histouriquefour" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Historique</span>
+                             
+                          </a>
+                         
+                      </li>
+                        
+                        
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+  
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Historique
+                    </h1>
+                    
+                </section>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+                <!-- Main content -->
+             </aside> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+  
+  
+  
+                <section ><!-- /.content -->
+                    <header class="header-section">
+                        <nav class="main-navbar">
+                        
+                      
+                        </nav>
+                      
+                      </header>
+                      <div>
+                      
+                           <table class="table table-hover"style="font-size: 13px;">
+                              <thead class="thead-light" style=" width: 40px;">
+                                  <th>Numero</th>
+                                  <th>annee</th>
+                                  <th>date_mvt</th>
+                                  <th>Code </th>
+                                  <th>Client </th>
+                                  <th>Chauffeur </th>
+                                  <th>Camion </th>
+                                  <th>Total HT</th>
+                                  <th>Total Remise</th>
+                                  <th>Total TVA </th>
+                                  <th>Total TTC</th>
+                                  
+                    
+                              </thead>
+                              <tbody style="font-size: 13px;">
+                      
+                                 
+                                  <tr *ngFor="let item of listlivr">
+                    
+                                    <td>{{item.numero}}</td>
+                                    <td>{{item.annee}}</td>
+                                    <td>{{item.date_mvt}}</td>
+                                    <td>{{item.code}}</td>
+                                    <td>{{item.libelle}}</td>
+                                    <td>{{item.chauffeur}}</td>
+                                    <td>{{item.camion}}</td>
+                                    <td>{{item.totht}}</td>
+                                    <td>{{item.totrem}}</td>
+                                    <td>{{item.tottva}}</td>
+                                    <td>{{item.totttc}}</td>
+                                </tr>
+                              </tbody>
+                          </table>  
+                      </div>
+                </section><!-- /.content -->
+  
+  
+               
+  
+  
+  
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+  
+  
+  
+    </body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

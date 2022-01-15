@@ -1,0 +1,248 @@
+
+
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+  
+             
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                MarketPlace
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="pull-left info" style="margin-left: 800px;">
+                    <a  routerLink="/update1" routerLinkActive="active"  style="font-size: 20px; color:white ">Profil</a>                </div>
+               <div class="pull-left info">
+                <a href="/login" style="font-size: 20px;     margin-left: 70px;color:white ">Déconnexion</a> 
+  
+               </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">                
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                          
+                      
+                  
+                  
+              </div>
+              <div class="user-panel">
+                  <div class="pull-left image">
+                      <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                  </div>
+                  <div class="pull-left info">
+                      
+                      
+                      
+  
+                            <a href="#"><i class="fa fa-circle text-success"></i> En ligne</a>
+                        </div>
+                    </div>
+                   
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" style="font-size: 15px;">
+                        <li class="active">
+                            <a routerLink="/articles" routerLinkActive="active">
+                              
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                       
+  
+                       
+                        <li>
+                            <a routerLink ="/articles" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Gestion d'article</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink ="/listcommfour"  routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Commande en attente</span>
+                            </a>
+                          
+                        </li>
+                        <li>
+                            <a routerLink="/livr" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Gestion de livraison</span>
+                               
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/llivr" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Liste des livraisons</span>
+                               
+                            </a>
+                           
+                        </li>
+                        <li>
+                          <a routerLink="/histouriquefour" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Historique</span>
+                             
+                          </a>
+                         
+                      </li>
+                        
+                        
+                        
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+  
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                      Ajouter article
+                    </h1>
+                    
+                </section>
+  
+                <!-- Main content -->
+             </aside> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+       
+  
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+  
+      <input type="hidden"  formControlName="id" id="id">
+      
+        <label  style="font-size: 15px;">Code</label>
+        <label  style="font-size: 15px; margin-left: 460px;">Id article</label><br>
+        <input type="text" style="font-size: 14px; width:400px" class="form-control" formControlName="code" id="code" readonly >
+        <input type="text" style="font-size: 14px; width:400px; margin-left: 500px;
+        margin-top: -30px;" class="form-control" formControlName="code_b" id="code_b">
+   
+     
+   
+        <label  style="font-size: 15px;">Categorie</label>
+        <label  style="font-size: 15px; margin-left: 414px;  ">Sous Categorie</label><br>
+        <select class="form-control"  style="font-size: 14px; width:400px" formControlName="ccateg" id="ccateg" (change)="onSelectCateg($event.target.value)">
+          <option value="0">-Select-</option>
+           <option *ngFor="let item of CategorieList" value="{{item.code}}">{{item.libelle}}</option>
+           </select>
+         
+        
+           
+           <select class="form-control"  style="font-size: 14px; margin-left: 500px; width:400px;
+           margin-top: -30px;"formControlName="codesous" id="codesous" (change)="onSelectSouscateg($event.target.value)">
+           <option value="0">-Select-</option>
+           <option *ngFor="let item of SouscategorieList" value="{{item.code}}">{{item.libelle}}</option>
+           </select>
+        
+        
+     
+      
+        <label  style="font-size: 15px;">TVA </label>
+        <label  style="font-size: 15px; margin-left: 469px;">Fodec </label><br> 
+        <select class="form-control"  style="font-size: 14px;  width:400px"formControlName="tva" id="tva">
+          <option value=0>0</option>
+          <option value=7>7</option>
+          <option value=13>13</option>
+          <option value=19>19</option>
+        </select>
+     
+      
+         
+        <input type="text"  style="font-size: 14px;  width:400px; margin-left: 500px;
+        margin-top: -30px;"class="form-control" formControlName="fodec" id="fodec">{{this.crudApi.dataForm.value.fodec}}
+      
+  
+    
+        <label  style="font-size: 15px; ">Stock Init  </label> 
+        <label  style="font-size: 15px; margin-left: 419px;">Libelle </label><br> 
+        <input type="text" style="font-size: 14px; width:400px" class="form-control" formControlName="stk_init" id="stk_init">
+        <input type="text"  style="font-size: 14px; width:400px ;margin-left: 500px;
+        margin-top: -30px;"class="form-control" formControlName="libelle" id="libelle">
+        
+        
+       
+  
+    
+     
+        <label  style="font-size: 15px;">Prix Achat </label>
+        <label  style="font-size: 15px; margin-left: 414px; width:400px">Prix Vente</label><br>
+        <input type="text" style="font-size: 14px; width:400px" class="form-control" formControlName="pa" id="pa">
+        <input type="text" style="font-size: 14px; width:400px ;margin-left: 500px;
+        margin-top: -30px;" class="form-control" formControlName="pv" id="pv">
+     
+      <div class="form-group" style="font-size: 15px;">
+        <label  style="font-size: 14px;">Télécharger un fichier  </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+  <br>  
+      <div class="form-group">
+              
+        <button type="submit"style="    font-size: 13px;" onclick="sortTable()" class="btn btn-success"><i class="fa fa-plus" routerLink="/articles" routerLinkActive="active"></i> Ajouter</button>
+        
+    
+  
+  </div>
+    </form>
+  
+  
+  
+  
+  
+  </section><!-- /.content -->
+  </aside><!-- /.right-side -->
+  </div><!-- ./wrapper -->
+  
+  
+  
+  </body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      

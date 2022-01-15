@@ -1,0 +1,105 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
+
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="tile">
+                    <div class="wrapper" style="width: 450px;">
+                        <div class="header" style="    font-family: 'Kaushan Script',cursive;
+                        font-size: 30px;">{{this.fournisseur.libelle}}</div>
+                        <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+                        <div class="banner-img">
+                            <img src="{{this.crudApi.host+'/api/Imgarticles/'+this.crudApi.dataForm.value.code}}" 
+                            style="height: 300px;"alt="Image 1">
+                            
+                        </div>
+
+                        <div class="dates">
+                            <div class="start"  style="font-size: 20px;     color:black">
+                                <strong></strong>{{this.crudApi.dataForm.value.libelle}}
+                                <span></span>
+                               
+                            </div>
+                            <div class="ends" style="font-size: 20px;     color: black" >
+
+                                <strong></strong> {{this.crudApi.dataForm.value.pv}}DNT
+                            </div>
+                        </div>
+
+                        <div class="stats" style="font-size: 17px; color: black;" >
+
+                            <div>
+                                <strong style="color: #007bff;"readonly>Categorie</strong> 
+                                <select formControlName="ccateg" id="ccateg" (change)="onSelectCateg($event.target.value)"
+                                 style="border-width:0px ;"readonly>
+                                
+                                   <option *ngFor="let item of CategorieList" value="{{item.code}}"readonly>{{item.libelle}}</option>
+                                   </select>
+                            </div>
+
+                            <div>
+                                <strong style="color: #007bff;">Sous Categorie</strong>
+                                
+                               
+                            
+
+                            <select id="codesous" (change)="onSelectSouscateg($event.target.value)" style="border-width:0px ;"readonly>
+                            
+                            <option *ngFor="let item of SouscategorieList"value="{{item.code}}"readonly>{{item.libelle}}</option>
+                            </select>
+                          </div>
+                            <div>
+                                <strong style="color: #007bff;">En stock</strong> {{this.crudApi.dataForm.value.stk_init}}
+                            </div>
+
+                        </div>
+
+                        
+</form>
+                        
+
+                        <div class="footer">
+                            
+                          <button>  <a class="Cbtn Cbtn-danger" [mat-dialog-close]>Retour</a></button> 
+                        </div>
+                        
+                    </div>
+                </div> 
+            </div>
+
+           </div>
+           </div>
+            
+
+
+
+
+
+
+           
+
+          
+          
+          
+          
+          
+          
+          
+          
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+                  
+          

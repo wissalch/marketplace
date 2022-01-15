@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  input:invalid {
+    border: 2px solid red;
+  }
+  </style>
+
+</head>
+<body>
+
+<form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+   
+    <hr>
+    <h1 style="    margin-bottom: -45px;
+    margin-left: 240px;
+    padding: 30px">S'inscrire  </h1>
+    
+    
+    <label for="code"></label>
+        <input type="hidden" formControlName="code" id="code" readonly>
+    
+    <label for="email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Email"formControlName="email" id="email" (keyup)="verif()">
+
+    <label for="libelle"><b>Nom et Prénom</b></label>
+    <input type="text" placeholder="Enter Nom et prénom" formControlName="libelle" id="libelle">
+
+<label for="adresse"><b>Adresse</b></label>
+    <input type="text" placeholder="Enter Adresse" formControlName="adresse" id="adresse">
+
+    <label for="adresse"><b>Télèphone</b></label>
+    <input type="text" placeholder="Enter Numero de télèphone" formControlName="tel" id="tel">
+
+    <label for="adresse"><b>Fax</b></label>
+    <input type="text" placeholder="Enter Fax" formControlName="fax" id="fax">
+
+    <label for="pwd"><b>Mot de passe</b></label>
+    <input type="password" placeholder="Enter Mot de passe" formControlName="pwd" id="pwd">
+
+    <hr>
+
+    <button type="submit" class="registerbtn" style="padding: 9px 20px; margin-top:-10px">S'inscrire</button>
+   
+  </div>
+
+  <div class="container signin" style="background-color:white;">
+    <p>j'ai déja un compte! <a href="/login"> Se connecter</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,386 @@
+
+
+    <body class="skin-blue">
+      <!-- header logo: style can be found in header.less -->
+      <header class="header">
+          <a href="index.html" class="logo">
+
+           
+              <!-- Add the class icon to your logo image or logo icon to add the margining -->
+              MarketPlace
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top" role="navigation">
+              <div class="pull-left info" style="margin-left: 800px;">
+                  <a routerLink="/update1" routerLinkActive="active" style="font-size: 20px; color:white ">Profil</a>                </div>
+             <div class="pull-left info">
+              <a href="/login" style="font-size: 20px;    margin-left: 70px;color:white ">Déconnexion</a> 
+
+             </div>
+          </nav>
+      </header>
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+          <!-- Left side column. contains the logo and sidebar -->
+          <aside class="left-side sidebar-offcanvas">                
+              <!-- sidebar: style can be found in sidebar.less -->
+              <section class="sidebar">
+                  <!-- Sidebar user panel -->
+                  <div class="user-panel">
+                        
+                    
+                
+                
+            </div>
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    
+<span>{{this.nomf}}</span>
+                          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                      </div>
+                  </div>
+                 
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu" style="font-size: 15px;">
+                      <li class="active">
+                          <a routerLink="/articles" routerLinkActive="active">
+                            
+                              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                          </a>
+                      </li>
+                     
+
+                     
+                      <li>
+                          <a routerLink ="/articles" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Gestion d'article</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a routerLink ="/listcommfour"  routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Commande en attente</span>
+                          </a>
+                        
+                      </li>
+                      <li>
+                          <a routerLink="/livr" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Gestion de livraison</span>
+                             
+                          </a>
+                      </li>
+                      <li>
+                          <a routerLink="/llivr" routerLinkActive="active">
+                              <i class="fa fa-th"></i> <span>Liste des livraisons</span>
+                             
+                          </a>
+                         
+                      </li>
+                      
+                      <li>
+                        <a routerLink="/histouriquefour" routerLinkActive="active">
+                            <i class="fa fa-th"></i> <span>Historique</span>
+                           
+                        </a>
+                       
+                    </li>
+                      
+                      
+                  </ul>
+              </section>
+              <!-- /.sidebar -->
+          </aside>
+
+          <!-- Right side column. Contains the navbar and content of the page -->
+          <aside class="right-side">                
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+                  <h1>
+                      Liste Article
+                  </h1>
+                  
+              </section>
+
+              <!-- Main content -->
+           </aside> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside class="right-side">                
+              <!-- Content Header (Page header) -->
+
+
+
+              <section style="margin-left: 20px;"><!-- /.content -->
+    
+                <div style="width: 300px;">
+                  <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label for="libelle"></label>
+                      <input type="text" style="font-size: 14px;"placeholder="Chercher par categorie..." class="form-control" id="libelle" required [(ngModel)]="libelle" name="libelle">
+                    </div>
+                
+                    <div class="btn-group">
+                      <button type="submit" style="margin-top: -52px;
+                      margin-left: 310px;
+                      
+                      height: 30px;" class="btn btn-success">chercher</button>
+                    </div>
+                  </form>
+                </div>
+              
+            
+                <table class="w3-table-all">
+                    <thead >
+                   
+         </thead>
+           <tbody style="font-size: 13px;"> 
+        <tr *ngFor="let article of articles">
+        
+        <td>{{article.code}}</td>
+        <td>{{article.libelle}}</td>
+        <td>{{article.pa}}</td>
+        <td>{{article.pv}}</td>
+        <td>{{article.tva}}</td>
+        <td>{{article.fodec}}</td>
+        <td>{{article.stk_init}}</td>
+        <td>{{article.codef}}</td>
+        
+        
+        <td><a href="#"><img class="card-img-top img-responsive"
+          src = "{{this.crudApi.host+'/api/Imgarticles/'+article.code}}" 
+          style = "   height: 70px;
+          width: 90px;;"
+         alt=""></a></td>
+        
+        
+        <td><button type="button" class="btn btn-success"  class="btn btn-success"style=" margin-left: 10px;
+            font-size: 13px;     width: 95px;" (click) = "selectData(article)">
+            <i class="fa fa-pencil-square-o" ></i>Modifier</button>
+            <br>
+            <br>
+         <button type="button"  class="btn btn-success"style=" margin-left: 10px;
+         font-size: 13px;"class="btn btn-danger" (click) = "removeData(article.code)">
+            <i class="fa fa-trash-o"></i>Supprimer</button></td>
+             </tr>
+               </tbody>
+               </table>
+
+
+
+
+
+
+
+                
+              
+            
+  
+  
+              </section><!-- /.content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <section class="content-header">
+
+                  
+                  
+                  
+                  
+                  
+                      
+                            <a class="btn btn-success"style="background-color: #3680ab;
+                            color: white;
+                            font-size: 13px;" (click)="addArticle()">
+                            <i class="fa fa-plus"></i>Ajouter Article </a>
+                            <br>
+                            
+                              <a class="btn btn-success"style="background-color: #3680ab;
+                              color: white; 
+    margin-top: -50px;
+    margin-left: 950px;
+                               font-size: 13px;
+                               width: 120px;"  (click)="exportToExcel()">
+                              <i class="fa fa-plus-square"></i>Exporter</a>
+                               
+                           
+                        
+                              <div class="jumbotron text-center" style="      margin-top: -20px;   padding: 1px;">
+                                <h1 style="font-size: 25px;">La liste des articles</h1>
+                              </div>
+                
+                
+                
+                
+                        <table class="w3-table-all"id="myTable">
+                            <thead >
+                              <tr class="w3-red">
+                  
+                    <th scope="col">Code</th>
+                    <th scope="col">Libelle</th>
+                    <th scope="col">Prix Achat</th>
+                    <th scope="col">Prix Vente </th>
+                    <th scope="col">Tva</th>
+                    <th scope="col">Fodec </th>
+                    <th scope="col">Stock Init </th>
+                    <th scope="col">Fournisseur </th>
+                    <th scope="col">image </th>
+                    <th class="text-center" scope="col">Action</th>
+                    </tr>
+                 </thead>
+                   <tbody style="font-size: 13px;"> 
+                <tr *ngFor="let item of crudApi.listData">
+                
+                <td>{{item.code}}</td>
+                <td>{{item.libelle}}</td>
+                <td>{{item.pa}}</td>
+                <td>{{item.pv}}</td>
+                <td>{{item.tva}}</td>
+                <td>{{item.fodec}}</td>
+                <td>{{item.stk_init}}</td>
+                <td>{{item.codef}}</td>
+                
+                
+                <td><a href="#"><img class="card-img-top img-responsive"
+                  src = "{{this.crudApi.host+'/api/Imgarticles/'+item.code}}" 
+                  style = "    height: 100px;
+                  width: 120px;"
+                 alt=""></a></td>
+                
+                
+                <td><button type="button" class="btn btn-success"  class="btn btn-success"style=" margin-left: 10px;
+                    font-size: 13px;     width: 95px;" (click) = "selectData(item)">
+                    <i class="fa fa-pencil-square-o" ></i>Modifier</button>
+                    <br>
+                    <br>
+                 <button type="button"  class="btn btn-success"style=" margin-left: 10px;
+                 font-size: 13px;"class="btn btn-danger" (click) = "removeData(item.code)">
+                    <i class="fa fa-trash-o"></i>Supprimer</button></td>
+                     </tr>
+                       </tbody>
+                       </table>
+                      
+                
+   
+
+
+              </section><!-- /.content -->
+
+
+             
+
+
+
+          </aside><!-- /.right-side -->
+      </div><!-- ./wrapper -->
+
+
+
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

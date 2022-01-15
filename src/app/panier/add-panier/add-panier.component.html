@@ -1,0 +1,429 @@
+
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+
+             
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                MarketPlace
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="pull-left info" style="margin-left: 800px;">
+                    <a routerLink="/update" routerLinkActive="active" style="font-size: 20px; color:white "> Profil</a>                </div>
+               <div class="pull-left info">
+                <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+
+               </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">                
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        
+                       
+                    
+                </div>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        
+                        <span>{{this.nom}} </span>
+   <a href="#"><i class="fa fa-circle text-success"></i> En ligne</a>
+                        </div>
+                    </div>
+                   
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" style="font-size: 15px;">
+                        <li class="active">
+                            <a routerLink ="/panier" routerLinkActive="active">
+                              
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                       
+
+                       
+                        <li>
+                            <a routerLink ="/panier" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Boutique</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink ="/comm"  routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>passer une commande</span>
+                            </a>
+                          
+                        </li>
+                        <li>
+                            <a routerLink="/listpanier" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Panier stocké</span>
+                               
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/lcomm" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Consulter votre commande</span>
+                               
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a routerLink="/historique" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>historique</span>
+                               
+                            </a>
+                           
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Boutique
+                    </h1>
+                    
+                </section>
+
+                <!-- Main content -->
+             </aside> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<aside class="right-side">  
+
+
+
+
+
+    
+    <section class="content-header">
+        <header class="header-section">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-xl-5">
+                           
+                    </div>
+                    
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="user-panier">
+                           
+                            <div class="up-item">
+                                <div class="shopping-card" (click)="panier()" style="margin-top: -27px;
+                                margin-left: 500px;">
+                                    <button class="btn btn-info btn-block"style="font-size: 11px;
+                                    height: 37px;    background-color: #424242; border-color: #424242;
+                                    width: 80px;">
+                                      <a>Mon panier</a>  
+                                       <br>        
+                                    <span>{{this.panierService.totttc}} </span>
+                                       </button>
+                                       <img src="assets/AdminLTE-master/img/panier1.jpg"style="    margin-left: 85px;
+                                       width: 30px;
+                                       margin-top: -53px;"  alt="User Image" />
+                             
+                                    
+                                </div>
+                            </div>
+        
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            </div>
+            </header>
+            </section>
+            
+        <br>
+    
+
+
+
+
+
+
+
+
+
+
+    <section style="margin-left: 20px;"><!-- /.content -->
+    
+        <h5>Chercher un Article</h5>
+        <div style="width: 300px;">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="libelle"></label>
+              <input type="text" style="font-size: 14px;"placeholder="Entrer le Libelle..." class="form-control" id="libelle" required [(ngModel)]="libelle" name="libelle">
+            </div>
+        
+            <div class="btn-group">
+              <button type="submit" style="margin-top: -50px;
+              margin-left: 310px;
+              
+              height: 30px;" class="btn btn-success">chercher</button>
+            </div>
+          </form>
+        </div>
+      
+    
+          <div class="row card-deck">
+                     
+            <div class="col-lg-3 col-md-6 mb-4"style="    max-width: 19%;" *ngFor="let article of articles">
+                <div class="card text-center text-lg-left"style="    height: 160px;border-color: aliceblue;">
+                    
+        
+                      
+                   
+                    
+                    <div class="card-header"style=" border-color: #1e2123;">
+                            <img class="card-img-top img-responsive" src="{{this.crudApi.host+'/api/Imgarticles/'+article.code}}"
+                            style = "     height: 70px;
+                            width: 130px;
+                        
+                        "
+                            alt="">
+                       </div> 
+                   
+                       
+       
+                   <h3 style="text-align: center;"> {{article.libelle}}</h3>
+             
+              
+                <h3 style="text-align: center;"> {{article.pv}} TND</h3>
+           
+        
+        
+        
+        
+              
+            <div class="col-xl-9 col-xl-5"style="         width: 100px;
+                margin-left: 20px;">
+                
+                    <label for="qte" style="font-size: 13px;text-align: center;    margin-left: -35px;"> Quantite: </label>
+                <input style="    margin-top: -30px;
+                margin-left: 30px;" type="number"class="form-control" [(ngModel)]="article.qte"
+                id="qte" required [(ngModel)]="qte" name="qte"ng-init="article.qte=1">
+               
+                <input style="font-size: 10px;" type="hidden"class="form-control"[(ngModel)]="article.code">
+              
+            </div>
+        </div>
+        
+        
+           <br> 
+           <div class="col-12 padding-0"style="    margin-left: 40px;
+           margin-top: -10px;">
+               <button class="btn btn-success btn-block" style="     background-color: #17820b;
+               border-color: #17820b;   width: 120px;    margin-left: -20px;" (click)="addToCart(article,article.code)"
+               (click)="getarticle(item.code)">
+                   Ajouter au panier
+               </button>
+           </div>
+           <br>
+           <div class="col-12 padding-0"style="       margin-top: -10px;
+               margin-left: 87px;">
+               <button class="btn btn-info btn-block"style="width:65px;    border-color: #c4cdd4;
+               background-color:#1b1919ad;   margin-left: -40px;" (click)="Show(article)">
+        Détails
+               </button>
+           </div>
+        
+        </div>
+ 
+        </div>
+        
+        
+
+
+
+
+    
+
+
+      </section><!-- /.content -->
+
+
+
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+
+
+                   
+                    <div class="row card-deck">
+                     
+                        <div class="col-lg-3 col-md-6 mb-4"style="    max-width: 19%;" *ngFor="let item of this.crudApi.listData">
+                            <div class="card text-center text-lg-left"style="border-color: aliceblue;">
+                                
+                    
+                                  
+                               
+                                
+                                <div class="card-header"   style=" border-color: #1e2123;">
+                                        <img class="card-img-top img-responsive" src="{{this.crudApi.host+'/api/Imgarticles/'+item.code}}"
+                                        style = "    height: 150px;
+                                        width: 150px;
+                                    "
+                                        alt="">
+                                   </div> 
+                               
+                                   
+                   
+                               <h3 style="text-align: center;"> {{item.libelle}}</h3>
+                         
+                          
+                            <h3 style="text-align: center;"> {{item.pv}} TND</h3>
+                       
+                    
+                    
+                    
+                    
+                          
+                        <div class="col-xl-9 col-xl-5"style="         width: 100px;
+                            margin-left: 20px;">
+                            
+                                <label for="qte" style="font-size: 13px;text-align: center;"> Quantite: </label>
+                            <input style="    font-size: 10px;" type="number"class="form-control" [(ngModel)]="item.qte"
+                            id="qte" required [(ngModel)]="qte" name="qte"ng-init="item.qte=1">
+                           
+                            <input style="font-size: 15px;" type="hidden"class="form-control"[(ngModel)]="item.code">
+                          
+                        </div>
+                    </div>
+                    
+                    
+                       <br> 
+                       <div class="col-12 padding-0"style="    margin-left: 40px;
+                       margin-top: -10px;">
+                           <button class="btn btn-success btn-block" style="     background-color: #17820b;
+                           border-color: #17820b;   width: 120px;    margin-left: -20px;" (click)="addToCart(item,item.code)"
+                           (click)="getarticle(item.code)">
+                               Ajouter au panier
+                           </button>
+                       </div>
+                       <br>
+                       <div class="col-12 padding-0"style="       margin-top: -10px;
+                           margin-left: 87px;">
+                           <button class="btn btn-info btn-block"style="width:65px;    border-color: #c4cdd4;
+                           background-color:#1b1919ad;   margin-left: -40px;" (click)="Show(item)">
+                    Détails
+                           </button>
+                       </div>
+                    
+                    </div>
+                    </div>
+                   
+                    
+
+
+
+
+                </section><!-- /.content -->
+
+
+
+               
+
+
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

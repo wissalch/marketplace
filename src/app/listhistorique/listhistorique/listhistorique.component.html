@@ -1,0 +1,319 @@
+
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="index.html" class="logo">
+
+             
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                MarketPlace
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="pull-left info" style="margin-left: 800px;">
+                    <a routerLink="/update" routerLinkActive="active" style="font-size: 20px; color:white "> Profil</a>                </div>
+               <div class="pull-left info">
+                <a href="/login" style="font-size: 20px; color:white ">Déconnexion</a> 
+
+               </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">                
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        
+                      
+                    
+                    
+                </div>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="assets/AdminLTE-master/img/photovide.png" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                      
+                        <span>{{this.nom}} </span>
+                        <a href="#"><i class="fa fa-circle text-success"></i> En ligne</a>
+                        </div>
+                    </div>
+                   
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" style="font-size: 15px;">
+                        <li class="active">
+                            <a routerLink ="/panier" routerLinkActive="active">
+                              
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                       
+
+                       
+                        <li>
+                            <a routerLink ="/panier" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Boutique</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink ="/comm"  routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>passer une commande</span>
+                            </a>
+                          
+                        </li>
+                        <li>
+                            <a routerLink="/listpanier" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Panier stocké</span>
+                               
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/lcomm" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>Consulter votre commande</span>
+                               
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a routerLink="/historique" routerLinkActive="active">
+                                <i class="fa fa-th"></i> <span>historique</span>
+                               
+                            </a>
+                           
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Historique de livraison
+                    </h1>
+                    
+                </section>
+
+                <!-- Main content -->
+             </aside>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+  
+                    
+                    
+            
+<header class="header-section">
+    <nav class="main-navbar">
+    
+  
+    </nav>
+  
+  </header>
+  <div>
+  
+       <table class="table table-hover"style="font-size: 13px;">
+          <thead class="thead-light" style=" width: 40px;">
+              <th>Numero</th>
+              <th>date_mvt</th>
+              <th>Nom </th>
+              <th>Total HT</th>
+              <th>Total TTC</th>
+              <th>Total TVA</th>
+              
+
+          </thead>
+          <tbody style="font-size: 13px;">
+  
+             
+              <tr *ngFor="let item of historiqueService.listhistorique">
+
+                <td>{{item.numero}}</td>
+                <td>{{item.date_mvt}}</td>
+                <td>{{item.nom}}</td>
+                <td>{{item.tottht}}</td>
+                <td>{{item.totttc}}</td>
+                <td>{{item.tottva}}</td>
+               
+            </tr>
+          </tbody>
+      </table>
+  </div>
+  
+  
+                    
+                        
+     
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+  
+  
+  
+    </body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
